@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/apaaaai")
 public class PredCommandController {
 
 
@@ -21,5 +21,7 @@ public class PredCommandController {
 
 
     }
+
+
 
 }

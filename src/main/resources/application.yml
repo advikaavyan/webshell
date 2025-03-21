@@ -1,6 +1,4 @@
-spring:
-  application:
-    name: webshell
+
 info.app.name: @project.artifactId@
 info.app.version: @project.version@
 spring.devtools.restart.enabled: true
@@ -8,4 +6,22 @@ spring.devtools.livereload.enabled: true
 
 server:
   port: 8080
+spring:
+  application:
+    name: webshell
 
+
+
+jpa.database-platform: org.hibernate.dialect.H2Dialect
+
+# Enable Liquibase
+spring.liquibase.enabled: true
+spring.liquibase.change-log: classpath:db/changelog/db.changelog-master.xml
+
+spring.liquibase.database-change-log-lock-table: DATABASECHANGELOGLOCK
+spring.liquibase.database-change-log-table: DATABASECHANGELOG
+
+spring.datasource.driver-class-name: org.h2.Driver
+spring.datasource.url: jdbc:h2:file:D:\\2025\\marchLastWeekLeave\\webshellWS\\WEBSHELL_MAIN\\src\\mydb111
+spring.datasource.username: root
+spring.datasource.password: root

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="2" author="anurag">
+        <insert tableName="predefined_command">
+            <column name="command" value="ls -ltr"/>
+            <column name="command_name" value="List Of Files"/>
+            <column name="command_desc" value="List of files in directory"/>
+        </insert>
+
+        <insert tableName="predefined_command">
+            <column name="command" value="ls -ltr"/>
+            <column name="command_name" value="List Of Files"/>
+            <column name="command_desc" value="List of files in directory"/>
+        </insert>
+
+        <insert tableName="predefined_command">
+            <column name="command" value="ls -ltr $(pwd)/*"/>
+            <column name="command_name" value="List Of Files Full Path"/>
+            <column name="command_desc" value="List of files in directory"/>
+        </insert>
+
+        <insert tableName="predefined_command">
+            <column name="command" value="df -h"/>
+            <column name="command_name" value="Disk Space"/>
+            <column name="command_desc" value="Server's Disk Space"/>
+        </insert>
+
+        <insert tableName="predefined_command">
+            <column name="command" value="ps -eaf"/>
+            <column name="command_name" value="Running Processes"/>
+            <column name="command_desc" value="Running Processes List"/>
+        </insert>
+        <insert tableName="predefined_command">
+            <column name="command" value="uptime"/>
+            <column name="command_name" value="Server Started Since"/>
+            <column name="command_desc" value="Server Started Since Up Time"/>
+        </insert>
+        <insert tableName="predefined_command">
+            <column name="command" value="free -m"/>
+            <column name="command_name" value="Free RAM Memory"/>
+            <column name="command_desc" value="Free RAM Memory Data"/>
+        </insert>
+
+
+     <!--   new PredefinedCommand(Long.valueOf(1), "ls -ltr", "List Of Files", "VErmi"),
+        new PredefinedCommand(Long.valueOf(2), "ls -ltr $(pwd)/*", "List Of Files", "List Of Files under current"),
+        new PredefinedCommand(Long.valueOf(3), "df -h", "Disk Space ", "Server's Disk Space"),
+        new PredefinedCommand(Long.valueOf(4), "ps -eaf", "Running Processes ", "Running Processes List"),
+        new PredefinedCommand(Long.valueOf(5), "uptime", "Server Started Since ", "Server Started Since"),
+        new PredefinedCommand(Long.valueOf(6), "free -m", "Free RAM Memory ", "Free RAM Memory Data")-->
+    </changeSet>
+
+</databaseChangeLog>

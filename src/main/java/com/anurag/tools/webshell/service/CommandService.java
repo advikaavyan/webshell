@@ -2,8 +2,7 @@ package com.anurag.tools.webshell.service;
 
 import com.anurag.tools.webshell.dto.CommandRequest;
 import com.anurag.tools.webshell.dto.CommandResponse;
-import com.anurag.tools.webshell.dto.PredefinedCommand;
-import com.anurag.tools.webshell.repository.PredefinedCommandList;
+import com.anurag.tools.webshell.entity.PredefinedCommandEntity;
 import com.anurag.tools.webshell.service.linux.LinuxCommandService;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +13,11 @@ public class CommandService {
 
     final String LINUX = "LINUX";
     LinuxCommandService linuxCommandService;
+    private final PredefinedCommandService predefinedCommandService;
 
-    public CommandService(LinuxCommandService linuxCommandService) {
+
+    public CommandService(PredefinedCommandService predefinedCommandService, LinuxCommandService linuxCommandService) {
+        this.predefinedCommandService = predefinedCommandService;
         this.linuxCommandService = linuxCommandService;
     }
 
@@ -39,11 +41,15 @@ public class CommandService {
 
 
         if (isNumeric(request.getCommand())) {
-            Optional<PredefinedCommand> command = PredefinedCommandList.availableCommands.stream()
+           /* Optional<PredefinedCommand> command = PredefinedCommandList.availableCommands.stream()
                     .filter(cmd -> cmd.getCommandId().equals(Long.valueOf(request.getCommand())))
                     .findFirst();
             PredefinedCommand predefinedCommand = command.get();
-            request11.setCommand(predefinedCommand.getCommand());
+            request11.setCommand(predefinedCommand.getCommand());*/
+
+            Optional<PredefinedCommandEntity> command = predefinedCommandService.getCommandById(Long.valueOf(request.getCommand()));
+
+            request11.setCommand(command.get().getCommand());
         } else {
             request11.setCommand(request.getCommand());
         }
